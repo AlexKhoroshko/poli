@@ -2,6 +2,10 @@
 
 Poli is a web application for managing appointments between doctors and patients. It allows patients to book appointments with doctors and enables doctors to manage their appointments and leave recommendations for patients.
 
+## Web
+
+https://agile-anchorage-83726.herokuapp.com/
+
 ## Technologies Used
 * Ruby 3
 * Rails 7
