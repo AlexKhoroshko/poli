@@ -1,0 +1,15 @@
+%h2 Log in
+
+= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: 'form-signin' }) do |f|
+  .form-label-group
+    = f.label :phone_number, class: 'form-control-label'
+    = f.phone_field :phone_number, autofocus: true, autocomplete: "phone_number", class: 'form-control', placeholder: 'Phone number'
+  .form-label-group
+    = f.label :password, class: 'form-control-label'
+    = f.password_field :password, autocomplete: "current-password", class: 'form-control', placeholder: 'Password'
+  
+  .mt-3.mb-3
+    = f.submit "Log in", class: 'btn btn-lg btn-primary btn-block'
+
+.mt-3.mb-3
+  = render "devise/shared/links"

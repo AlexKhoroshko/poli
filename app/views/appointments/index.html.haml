@@ -1,0 +1,21 @@
+.doctors-header
+  %h3 Appointments
+  %div= link_to "View Doctors", patient_path, class: "btn btn-primary"
+%table.table.table-striped
+  %thead
+    %tr
+      %th Doctor Name
+      %th Phone Number
+      %th Status
+      %th Actions
+  %tbody
+    - @appointments.each do |appointment|
+      %tr
+        %td= "#{appointment.doctor.first_name} #{appointment.doctor.last_name}, " + appointment.doctor.categories.pluck(:name).join(', ')
+        %td= appointment.doctor.phone_number
+        %td= appointment.status.humanize
+        %td
+          - if appointment.open?
+            = button_to 'View Recomendation', '#', class: 'btn btn-secondary disabled'
+          - else
+            = link_to 'View Recomendation', recommendation_path(appointment.recommendation), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }

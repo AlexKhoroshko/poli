@@ -1,0 +1,18 @@
+.header
+  %h3 Appointments
+%table.table.table-striped
+  %thead
+    %tr
+      %th Patient Info
+      %th Status
+      %th Actions
+  %tbody
+    - @appointments.each do |appointment|
+      %tr
+        %td= "#{appointment.patient.first_name} #{appointment.patient.last_name}, " + appointment.patient.phone_number
+        %td= appointment.status.humanize
+        %td
+          - if appointment.open?
+            = link_to 'Leave Recommendation', new_recommendation_path(appointment_id: appointment), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }
+          - else
+            = link_to 'View Recommendation', recommendation_path(appointment.recommendation), class: "btn btn-primary", data: { turbo_frame: "remote_modal" }

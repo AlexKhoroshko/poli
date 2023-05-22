@@ -1,0 +1,21 @@
+.header
+  %h3 Doctors
+  = render "filters"
+  %div= link_to "View Appointments", appointments_path, class: "btn btn-primary"
+= turbo_frame_tag "table" do
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Doctor Name
+        %th Category
+        %th Actions
+    %tbody
+      - @doctors.each do |doctor|
+        %tr
+          %td= "#{doctor.first_name} #{doctor.last_name}"
+          %td= doctor.categories.pluck(:name).join(', ')
+          %td
+            - if current_user.appointments.where(doctor_id: doctor.id, status: 'open').any?
+              = button_to 'Booked', '#', method: :post, class: 'btn btn-secondary disabled'
+            - else
+              = button_to 'Book Appointment', appointments_path(doctor_id: doctor.id), method: :post, class: 'btn btn-success'

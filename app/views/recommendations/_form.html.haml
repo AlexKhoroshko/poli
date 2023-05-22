@@ -1,0 +1,14 @@
+= form_with model: recommendation do |f|
+  .mb-3
+    = f.hidden_field :appointment_id, value: appointment.id
+  .mb-3
+    = f.label :title, class: "form-label"
+    = f.text_field :title, class: "form-control"
+    = field_errors recommendation, :title
+  .mb-3
+    = f.label :description, class: "form-label"
+    = f.text_area :description, class: "form-control"
+    = field_errors recommendation, :description
+  .mb-3
+    = f.button class: "btn btn-primary"
+    = link_to "Cancel", doctor_path, class: "btn btn-outline-secondary"
