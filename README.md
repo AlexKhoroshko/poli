@@ -1,25 +1,51 @@
-# README
+# POLI
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Poli is a web application for managing appointments between doctors and patients. It allows patients to book appointments with doctors and enables doctors to manage their appointments and leave recommendations for patients.
 
-Things you may want to cover:
+## Technologies Used
+* Ruby 3
+* Rails 7
+* PostgreSQL
+* HTML/CSS
+* JavaScript
+* Bootstrap
+* Devise
+* Faker
+* RSpec
+* Capybara
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+1. Clone this repository to your local machine:
 
-* Configuration
+```bash
+git clone https://github.com/your-username/poli.git
+```
 
-* Database creation
+2. Install dependencies:
 
-* Database initialization
+```bash
+cd poli
+bundle install
+```
+3. Set up the database:
 
-* How to run the test suite
+```bash
+rails db:create
+rails db:migrate
+rails db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Start the Rails server:
 
-* Deployment instructions
+```bash
+rails server
+```
 
-* ...
-# poli
+5. Open your web browser and visit http://localhost:3000 to access the Poli application
+
+### Testing
+
+```bash
+bundle exec rspec
+```
