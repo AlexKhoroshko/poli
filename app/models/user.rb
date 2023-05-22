@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, authentication_keys: [:phone_number]
 
-  validates_presence_of :phone_number, :first_name, :last_name
+  validates_presence_of :phone_number, :password, :first_name, :last_name
   validates_uniqueness_of :phone_number
   validate :valid_phone_number_format
 
