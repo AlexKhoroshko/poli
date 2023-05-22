@@ -19,7 +19,7 @@ Poli is a web application for managing appointments between doctors and patients
 1. Clone this repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/poli.git
+git clone https://github.com/AlexKhoroshko/poli.git
 ```
 
 2. Install dependencies:
